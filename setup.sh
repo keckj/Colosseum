@@ -125,8 +125,8 @@ else #linux
                 rm -rf ./cmake_build
                 mv ./cmake-3.10.2 ./cmake_build
                 pushd cmake_build
-                ./bootstrap
-                make
+		./bootstrap --parallel=$(nproc)
+		make -j$(nproc)
                 popd
             fi
         fi
